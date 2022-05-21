@@ -1,13 +1,9 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tugas_web";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {header("Location: /");echo "forbidden";}
+include 'db.php';
 $uname=$_POST["uname"];
 $email=$_POST["email"];
-$passwd=$_POST["passwd"];
+$passwd=password_hash($_POST["passwd"], PASSWORD_DEFAULT);
 $sql = "INSERT INTO users(uname,email,passwd) VALUES('$uname','$email','$passwd')";
 if ($conn->query($sql) === TRUE) {
     echo "record created!";

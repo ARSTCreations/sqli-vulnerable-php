@@ -3,7 +3,6 @@ error_reporting(0);
 session_start();
 if (isset($_SESSION['uname'])) header("Location: homepage.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,22 +14,9 @@ if (isset($_SESSION['uname'])) header("Location: homepage.php");
 </head>
 <body>
     <form action="login.php" method="post">
-    Name: <input type="text" name="uname"><br>
-    Password: <input type="password" name="passwd"><br>
-    <input type="submit">
+    Username: <input type="text" name="uname" required><br>
+    Password: <input type="password" name="passwd" required><br>
+    <input type="submit" value="login">
     </form>
 </body>
-<script>
-    $(document).ready(function(){
-    $('.button').click(function(){
-        var clickBtnValue = $(this).val();
-        var ajaxurl = 'ajax.php',
-        data =  {'action': clickBtnValue};
-        $.post(ajaxurl, data, function (response) {
-            // Response div goes here.
-            alert("action performed successfully");
-        });
-    });
-});
-</script>
 </html>
