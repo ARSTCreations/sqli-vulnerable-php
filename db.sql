@@ -31,7 +31,7 @@ CREATE TABLE `users` (
   `uname` varchar(30) COLLATE utf8_bin NOT NULL,
   `email` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `passwd` varchar(50) COLLATE utf8_bin NOT NULL
+  `passwd` varchar(100) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uname`, `email`, `reg_date`, `passwd`) VALUES
-('admin', 'admin@web.com', '2022-05-18 13:58:46', 'admin');
+('admin', 'admin@web.com', '2022-05-18 13:58:46', '$2y$10$HJ1VhWaLfhrLyhG2ZNiogO.MwHlXk8uVf6sILOgV.zosG9cjrYVTO');
 
 --
 -- Indexes for dumped tables
